@@ -80,7 +80,7 @@ export class DependencyInjectionContainer {
             const fullPath = path.join(directory, file);
             const stat = fs.statSync(fullPath);
 
-            if (stat.isDirectory() && path.basename(fullPath) !== 'lib') {
+            if (stat.isDirectory() && path.basename(fullPath) !== 'lib' && path.basename(fullPath) !== 'test') {
                 this.loadFromDirectory(fullPath);
             } else if (stat.isFile() && (fullPath.endsWith('.ts') || fullPath.endsWith('.js'))) {
                 this.loadDependenciesFromFile(fullPath);
