@@ -1,5 +1,7 @@
 # Node.js Test Framework By AI
 
+**Adamantum - Author's Homepage:** [https://adamantum.site/](https://adamantum.site/)
+
 This project is a simplified, custom-built Node.js framework in TypeScript, created for testing and demonstration purposes with the **Roo Code** extension for Visual Studio Code, powered by the **Gemini Pro** agent.
 
 The primary goal of this project is to showcase the capabilities of AI-assisted development in a real-world scenario, including code generation, refactoring, documentation, and testing.
@@ -64,12 +66,8 @@ The project is divided into two main parts:
 
 ## Documentation & Reports
 
-You can find detailed documentation and test coverage reports via the links below:
-
-*   **Application Documentation (`src`)**: [./docs/src/index.html](./docs/src/index.html)
-*   **Framework Documentation (`lib`)**: [./docs/lib/index.html](./docs/lib/index.html)
-*   **Application Test Coverage (`src`)**: [./docs/reports/src/index.html](./docs/reports/src/index.html)
-*   **Framework Test Coverage (`lib`)**: [./docs/reports/lib/index.html](./docs/reports/lib/index.html)
+You can find detailed documentation and test coverage reports on the project's GitHub Pages site:
+[https://ajambor91.github.io/NodeAIFramework/](https://ajambor91.github.io/NodeAIFramework/)
 
 ### Test Coverage Summary
 
