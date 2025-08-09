@@ -68,8 +68,8 @@ You can find detailed documentation and test coverage reports via the links belo
 
 *   **Application Documentation (`src`)**: [./docs/src/index.html](./docs/src/index.html)
 *   **Framework Documentation (`lib`)**: [./docs/lib/index.html](./docs/lib/index.html)
-*   **Application Test Coverage (`src`)**: [./reports/index.html](./reports/index.html)
-*   **Framework Test Coverage (`lib`)**: [./reports-lib/index.html](./reports-lib/index.html)
+*   **Application Test Coverage (`src`)**: [./docs/reports/src/index.html](./docs/reports/src/index.html)
+*   **Framework Test Coverage (`lib`)**: [./docs/reports/lib/index.html](./docs/reports/lib/index.html)
 
 ### Test Coverage Summary
 

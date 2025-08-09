@@ -6,8 +6,8 @@
     "test": "jest",
     "start": "ts-node src/index.ts",
     "stop": "kill-port 3000",
-    "coverage:src": "jest --collectCoverage --coverageDirectory=reports --roots=src",
-    "coverage:lib": "jest --collectCoverage --coverageDirectory=reports-lib --roots=lib",
+    "coverage:src": "jest --collectCoverage --coverageDirectory=docs/reports/src --roots=src",
+    "coverage:lib": "jest --collectCoverage --coverageDirectory=docs/reports/lib --roots=lib",
     "doc:src": "typedoc --tsconfig tsconfig.json --out docs/src src/docs.ts",
     "doc:lib": "typedoc --tsconfig tsconfig.json --out docs/lib lib/index.ts"
   },
