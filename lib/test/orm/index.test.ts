@@ -1,4 +1,4 @@
-import { connectDB, getDB } from '../../orm';
+import { connectDB, getDB } from '../../database';
 import { MongoClient, Db } from 'mongodb';
 
 jest.mock('mongodb');

@@ -1,5 +1,6 @@
 import { MongoClient, Db } from 'mongodb';
 import { DbConnectionConfig } from '../types/db';
+import { Logger } from '../logger/Logger';
 
 let db: Db;
 
@@ -13,9 +14,11 @@ export const connectDB = async (config: DbConnectionConfig) => {
         const client = new MongoClient(config.url, config.options);
         await client.connect();
         db = client.db(config.dbName);
-        console.log('Connected to MongoDB');
+        const logger = Logger.getInstance();
+        logger.info('Connected to MongoDB');
     } catch (error) {
-        console.error('Could not connect to MongoDB', error);
+        const logger = Logger.getInstance();
+        logger.critical('Could not connect to MongoDB', error);
         process.exit(1);
     }
 };

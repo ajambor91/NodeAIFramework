@@ -1,4 +1,5 @@
 import { Service } from '../di/di';
+import { Writer } from './Writer';
 
 enum LogLevel {
   DEBUG,
@@ -19,38 +20,66 @@ const colors = {
 
 /**
  * @class Logger
- * @description A singleton logger class.
+ * @description A singleton logger class that provides methods for logging messages at different levels.
+ * It uses a Writer instance to write logs to files.
  */
 @Service()
 export class Logger {
   private static instance: Logger;
+  private writer: Writer;
 
-  private constructor() {}
+  /**
+   * @constructor
+   * @private
+   * @param {Writer} writer - An instance of the Writer class for log file operations.
+   */
+  private constructor(writer: Writer) {
+    this.writer = writer;
+  }
 
   /**
    * @method getInstance
-   * @description Gets the singleton instance of the logger.
-   * @returns {Logger} The logger instance.
+   * @description Gets the singleton instance of the logger. If an instance doesn't exist, it creates one with a new Writer.
+   * @returns {Logger} The singleton logger instance.
    */
   public static getInstance(): Logger {
     if (!Logger.instance) {
-      Logger.instance = new Logger();
+      const writer = new Writer();
+      Logger.instance = new Logger(writer);
     }
     return Logger.instance;
   }
 
   /**
    * @method log
-   * @description Logs a message with a given log level.
-   * @param {LogLevel} level - The log level.
-   * @param {string} message - The message to log.
-   * @param {any[]} args - Additional arguments to log.
+   * @private
+   * @description Logs a message to the console and a file with a given log level.
+   * If an argument is an Error, its stack trace is logged.
+   * @param {LogLevel} level - The log level (e.g., DEBUG, INFO, ERROR).
+   * @param {string} message - The main message to log.
+   * @param {any[]} args - Additional arguments to log, including Error objects.
    */
   private log(level: LogLevel, message: string, ...args: any[]): void {
     const timestamp = new Date().toISOString();
     const levelString = LogLevel[level];
     const color = colors[level];
-    console.log(`${color}[${timestamp}] [${levelString}] ${message}${colors.reset}`, ...args);
+    const logMessage = `[${timestamp}] [${levelString}] ${message}`;
+
+    let fileMessage = `${logMessage}`;
+    const consoleArgs = [];
+
+    for (const arg of args) {
+      if (arg instanceof Error) {
+        fileMessage += ` ${arg.stack || arg.message}`;
+        consoleArgs.push(arg.stack || arg.message);
+      } else {
+        fileMessage += ` ${JSON.stringify(arg)}`;
+        consoleArgs.push(arg);
+      }
+    }
+
+    console.log(`${color}${logMessage}${colors.reset}`, ...consoleArgs);
+    this.writer.write(fileMessage);
   }
 
   /**

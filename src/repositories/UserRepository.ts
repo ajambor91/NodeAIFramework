@@ -1,6 +1,6 @@
 import { Repository } from '../../lib/di/di';
 import { User } from '../types/user';
-import { getDB } from '../../lib/orm';
+import { getDB } from '../../lib/database';
 import { Collection, ObjectId } from 'mongodb';
 
 /**

@@ -108,7 +108,34 @@
 <a name='L43'></a><a href='#L43'>43</a>
 <a name='L44'></a><a href='#L44'>44</a>
 <a name='L45'></a><a href='#L45'>45</a>
-<a name='L46'></a><a href='#L46'>46</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">2x</span>
+<a name='L46'></a><a href='#L46'>46</a>
+<a name='L47'></a><a href='#L47'>47</a>
+<a name='L48'></a><a href='#L48'>48</a>
+<a name='L49'></a><a href='#L49'>49</a>
+<a name='L50'></a><a href='#L50'>50</a>
+<a name='L51'></a><a href='#L51'>51</a>
+<a name='L52'></a><a href='#L52'>52</a>
+<a name='L53'></a><a href='#L53'>53</a>
+<a name='L54'></a><a href='#L54'>54</a>
+<a name='L55'></a><a href='#L55'>55</a>
+<a name='L56'></a><a href='#L56'>56</a>
+<a name='L57'></a><a href='#L57'>57</a>
+<a name='L58'></a><a href='#L58'>58</a>
+<a name='L59'></a><a href='#L59'>59</a>
+<a name='L60'></a><a href='#L60'>60</a>
+<a name='L61'></a><a href='#L61'>61</a>
+<a name='L62'></a><a href='#L62'>62</a>
+<a name='L63'></a><a href='#L63'>63</a>
+<a name='L64'></a><a href='#L64'>64</a>
+<a name='L65'></a><a href='#L65'>65</a>
+<a name='L66'></a><a href='#L66'>66</a>
+<a name='L67'></a><a href='#L67'>67</a>
+<a name='L68'></a><a href='#L68'>68</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
@@ -122,6 +149,12 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -133,6 +166,12 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
@@ -141,6 +180,11 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -156,6 +200,11 @@
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import 'reflect-metadata';
 import { Validator } from '../validation/validators';
 &nbsp;
+/**
+ * @decorator Body
+ * @description A parameter decorator that marks a parameter as the request body.
+ * @returns {ParameterDecorator}
+ */
 export const Body = (): ParameterDecorator =&gt; {
   return (target, propertyKey, parameterIndex) =&gt; {
     if (!Reflect.hasMetadata('body', target.constructor, propertyKey as string)) {
@@ -167,6 +216,12 @@ export const Body = (): ParameterDecorator =&gt; {
   };
 };
 &nbsp;
+/**
+ * @decorator Valid
+ * @description A parameter decorator that marks a parameter to be validated.
+ * @param {new () =&gt; Validator} validator - The validator to use.
+ * @returns {ParameterDecorator}
+ */
 export const Valid = (validator: new () =&gt; Validator): ParameterDecorator =&gt; {
   return (target, propertyKey, parameterIndex) =&gt; {
     <span class="missing-if-branch" title="else path not taken" >E</span>if (!Reflect.hasMetadata('validators', target.constructor, propertyKey as string)) {
@@ -178,6 +233,12 @@ export const Valid = (validator: new () =&gt; Validator): ParameterDecorator =&g
   };
 };
 &nbsp;
+/**
+ * @decorator PathParam
+ * @description A parameter decorator that marks a parameter as a path parameter.
+ * @param {string} name - The name of the path parameter.
+ * @returns {ParameterDecorator}
+ */
 export const PathParam = (name: string): ParameterDecorator =&gt; {
   return (target, propertyKey, parameterIndex) =&gt; {
     <span class="missing-if-branch" title="else path not taken" >E</span>if (!Reflect.hasMetadata('pathParams', target.constructor, propertyKey as string)) {
@@ -189,6 +250,11 @@ export const PathParam = (name: string): ParameterDecorator =&gt; {
   };
 };
 &nbsp;
+/**
+ * @decorator QueryParams
+ * @description A parameter decorator that marks a parameter as the query parameters.
+ * @returns {ParameterDecorator}
+ */
 export const QueryParams = (): ParameterDecorator =&gt; {
   return (target, propertyKey, parameterIndex) =&gt; {
     <span class="missing-if-branch" title="else path not taken" >E</span>if (!Reflect.hasMetadata('queryParams', target.constructor, propertyKey as string)) {
@@ -205,7 +271,7 @@ export const QueryParams = (): ParameterDecorator =&gt; {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-08-09T12:19:28.216Z
+                at 2025-08-09T14:50:02.009Z
             </div>
         <script src="../prettify.js"></script>
         <script>

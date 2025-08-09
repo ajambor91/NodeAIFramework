@@ -1,8 +1,8 @@
 import { UserRepository } from '../../repositories/UserRepository';
-import { getDB } from '../../../lib/orm';
+import { getDB } from '../../../lib/database';
 import { Collection, ObjectId } from 'mongodb';
 
-jest.mock('../../../lib/orm');
+jest.mock('../../../lib/database');
 
 /**
  * @fileoverview This file contains the test suite for the UserRepository class.
