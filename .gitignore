@@ -102,3 +102,6 @@ typings/
 
 
 dist/
+
+# Package lock files
+package-lock.json
