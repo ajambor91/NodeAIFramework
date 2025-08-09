@@ -1,0 +1,38 @@
+{
+  "name": "node_test",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "start": "ts-node src/index.ts",
+    "stop": "kill-port 3000",
+    "coverage:src": "jest --collectCoverage --coverageDirectory=reports --roots=src",
+    "coverage:lib": "jest --collectCoverage --coverageDirectory=reports-lib --roots=lib",
+    "doc:src": "typedoc --tsconfig tsconfig.json --out docs/src src/docs.ts",
+    "doc:lib": "typedoc --tsconfig tsconfig.json --out docs/lib lib/index.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@istanbuljs/nyc-config-typescript": "^1.0.2",
+    "@types/jest": "^30.0.0",
+    "@types/node": "^24.2.1",
+    "jest": "^30.0.5",
+    "source-map-support": "^0.5.21",
+    "ts-jest": "^29.4.1",
+    "ts-node": "^10.9.2",
+    "typedoc": "^0.28.9",
+    "typescript": "^5.9.2"
+  },
+  "dependencies": {
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/mongodb": "^4.0.6",
+    "dotenv": "^17.2.1",
+    "jsonwebtoken": "^9.0.2",
+    "kill-port": "^2.0.1",
+    "mongodb": "^6.18.0",
+    "reflect-metadata": "^0.2.2"
+  }
+}
